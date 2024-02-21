@@ -1,0 +1,13 @@
+-- migrate:up
+CREATE TABLE menus (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    restaurant_id INT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    price FLOAT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (restaurant_id) REFERENCES restaurants(id) ON DELETE CASCADE
+)
+
+-- migrate:down
+
